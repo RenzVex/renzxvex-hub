@@ -3,385 +3,582 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RenzVexx Script Hub & Reviews</title>
-    <!-- Tailwind CSS for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>RenzVexx - Script Hub & Community Reviews</title>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #07040f;
-            color: #f3f4f6;
-            overflow-x: hidden;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Animated Glowing Gradient Text */
-        @keyframes gradientShift {
+        body {
+            background-color: #0b0714;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header / Navbar */
+        header {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: rgba(18, 12, 30, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Animasi Gradasi Berjalan untuk RenzVexx */
+        .brand-title {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(270deg, #c084fc, #e879f9, #a855f7, #9333ea, #c084fc);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 6s ease infinite;
+        }
+
+        @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        .animated-gradient-text {
-            background: linear-gradient(-270deg, #c084fc, #818cf8, #f472b6, #c084fc);
-            background-size: 300% 300%;
+        .brand-subtitle {
+            font-size: 10px;
+            color: #a78bfa;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(147, 51, 234, 0.15);
+            border: 1px solid rgba(147, 51, 234, 0.4);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #d8b4fe;
+            white-space: nowrap;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 8px #22c55e;
+        }
+
+        .browse-btn {
+            background: #7e22ce;
+            color: white;
+            padding: 7px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            transition: 0.2s;
+            border: 1px solid rgba(168, 85, 247, 0.5);
+        }
+
+        .browse-btn:hover {
+            background: #9333ea;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+        }
+
+        /* Container Utama */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            padding: 30px 20px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(145deg, #181028, #11091d);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 100px;
+            background: rgba(168, 85, 247, 0.2);
+            filter: blur(60px);
+            border-radius: 50%;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.15);
+            color: #d8b4fe;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #c084fc, #e879f9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease infinite;
-            filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.4));
         }
 
-        .glow-purple {
-            box-shadow: 0 0 35px rgba(168, 85, 247, 0.2);
+        .hero p {
+            color: #a78bfa;
+            font-size: 14px;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            line-height: 1.5;
         }
 
-        .glass-panel {
-            background: rgba(19, 11, 36, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        /* Search & Filter */
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 15px auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(15, 10, 25, 0.9);
+            border: 1px solid rgba(147, 51, 234, 0.4);
+            padding: 12px 15px 12px 42px;
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: #a855f7;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a78bfa;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .filter-btn {
+            background: rgba(25, 15, 40, 0.8);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            color: #d8b4fe;
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: #7e22ce;
+            color: white;
+            border-color: #a855f7;
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: #a855f7;
+            border-radius: 2px;
+        }
+
+        .script-count {
+            font-size: 12px;
+            color: #a78bfa;
+            background: rgba(147, 51, 234, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
             border: 1px solid rgba(147, 51, 234, 0.2);
         }
 
-        .glass-card {
-            background: linear-gradient(135deg, rgba(24, 13, 47, 0.8) 0%, rgba(13, 7, 26, 0.9) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Grid Script Cards */
+        .script-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
 
-        .glass-card:hover {
-            border-color: rgba(168, 85, 247, 0.6);
+        .script-card {
+            background: linear-gradient(145deg, #161026, #100a1d);
+            border: 1px solid rgba(147, 51, 234, 0.25);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .script-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(147, 51, 234, 0.3);
+            box-shadow: 0 8px 25px rgba(126, 34, 206, 0.25);
+            border-color: rgba(168, 85, 247, 0.5);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .card-badge {
+            font-size: 10px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-own {
+            background: rgba(147, 51, 234, 0.2);
+            color: #d8b4fe;
+            border: 1px solid rgba(147, 51, 234, 0.4);
+        }
+
+        .badge-review {
+            background: rgba(234, 179, 8, 0.15);
+            color: #fde047;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+
+        .card-author {
+            font-size: 11px;
+            color: #a78bfa;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .script-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .script-card p {
+            font-size: 12px;
+            color: #9ca3af;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .loadstring-box {
+            background: #080410;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-family: monospace;
+            font-size: 11px;
+            color: #c084fc;
+            white-space: nowrap;
+            overflow-x: auto;
+            margin-bottom: 12px;
+        }
+
+        .script-card button {
+            background: linear-gradient(135deg, #7e22ce, #9333ea);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(126, 34, 206, 0.3);
+        }
+
+        .script-card button:hover {
+            background: linear-gradient(135deg, #9333ea, #a855f7);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
+        }
+
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #7e22ce;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 13px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.3s, fadeout 0.3s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            font-size: 12px;
+            border-top: 1px solid rgba(147, 51, 234, 0.1);
+            width: 100%;
+        }
+
+        footer span {
+            color: #c084fc;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-purple-600 selection:text-white">
+<body>
 
-    <!-- Header Section -->
-    <header class="sticky top-0 z-50 glass-panel border-b border-purple-900/40">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-fuchsia-500 flex items-center justify-center glow-purple shadow-lg shadow-purple-900/50">
-                    <i class="fa-solid fa-code text-white text-lg"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-wide animated-gradient-text">RenzVexx</h1>
-                    <p class="text-[11px] text-purple-300/70 font-medium tracking-wider uppercase">Script Hub & Community Reviews</p>
-                </div>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="brand">
+            <div class="brand-icon">&lt;/&gt;</div>
+            <div>
+                <div class="brand-title">RenzVexx</div>
+                <div class="brand-subtitle">Script Hub & Community Reviews</div>
             </div>
-            <div class="flex items-center space-x-3">
-                <span class="hidden sm:inline-flex text-xs px-3.5 py-1.5 rounded-full bg-purple-950/80 border border-purple-800/60 text-purple-300 font-medium shadow-inner">
-                    <i class="fa-solid fa-circle text-[8px] text-emerald-400 mr-2 animate-ping"></i> Status: Online
-                </span>
-                <a href="#scripts" class="bg-purple-600/20 hover:bg-purple-600/40 border border-purple-500/40 text-purple-200 px-4 py-2 rounded-xl text-xs font-semibold transition-all">
-                    Browse Scripts
-                </a>
+        </div>
+        <div class="header-right">
+            <div class="status-badge">
+                <span class="status-dot"></span> Status: Online
             </div>
+            <a href="#scripts-section" class="browse-btn">Browse Scripts</a>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main id="scripts" class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full">
+    <!-- Container Utama -->
+    <div class="container">
+        
         <!-- Hero Banner -->
-        <section class="text-center py-12 px-6 rounded-3xl glass-panel mb-12 relative overflow-hidden glow-purple">
-            <div class="absolute -top-32 -left-32 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="hero">
+            <div class="hero-tag">🔥 Curated & Tested Roblox Loadstrings</div>
+            <h1>Cari & Ambil Script <span>Pilihan Terbaik</span></h1>
+            <p>Koleksi script eksklusif buatan Dev RenzVexx serta hasil review pilihan dari script kreator lain yang aman, jos, dan siap pakai!</p>
             
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-900/40 border border-purple-700/50 text-purple-300 text-xs font-medium mb-4">
-                <i class="fa-solid fa-fire text-amber-400"></i> Curated & Tested Roblox Loadstrings
+            <!-- Pencarian -->
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Cari nama script, game, atau creator..." onkeyup="filterScripts()">
             </div>
 
-            <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4 leading-tight">
-                Cari & Ambil Script <span class="animated-gradient-text">Pilihan Terbaik</span>
-            </h2>
-            <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-                Koleksi script eksklusif buatan Dev RenzVexx serta hasil review pilihan dari script kreator lain yang aman, jos, dan siap pakai!
-            </p>
-
-            <!-- Search & Filter Controls -->
-            <div class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
-                <div class="relative flex-grow">
-                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-purple-400/60"></i>
-                    <input type="text" id="searchInput" onkeyup="filterScripts()" placeholder="Cari nama script, game, atau creator..." 
-                        class="w-full bg-[#120924]/90 border border-purple-800/50 rounded-2xl py-3.5 pl-11 pr-4 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all shadow-inner">
-                </div>
-                <div class="flex gap-2 justify-center">
-                    <button onclick="filterCategory('all')" id="btn-all" class="filter-btn px-4 py-3 rounded-2xl text-xs font-bold bg-purple-600 text-white shadow-md shadow-purple-900/40 transition-all">Semua</button>
-                    <button onclick="filterCategory('renzxvex')" id="btn-renzxvex" class="filter-btn px-4 py-3 rounded-2xl text-xs font-semibold bg-[#160d2b] border border-purple-900/50 text-purple-300 hover:bg-purple-950 transition-all">Buatan RenzVexx</button>
-                    <button onclick="filterCategory('review')" id="btn-review" class="filter-btn px-4 py-3 rounded-2xl text-xs font-semibold bg-[#160d2b] border border-purple-900/50 text-purple-300 hover:bg-purple-950 transition-all">Review Pilihan</button>
-                </div>
+            <!-- Filter Kategori -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="setCategory('all', this)">Semua</button>
+                <button class="filter-btn" onclick="setCategory('own', this)">Buatan RenzVexx</button>
+                <button class="filter-btn" onclick="setCategory('review', this)">Review Pilihan</button>
             </div>
-        </section>
-
-        <!-- Section Title & Counter -->
-        <div class="mb-6 flex items-center justify-between px-2">
-            <h3 class="text-lg font-bold text-gray-200 flex items-center gap-2.5">
-                <div class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div> Daftar Script & Review Tersedia
-            </h3>
-            <span id="scriptCount" class="text-xs text-purple-400 font-semibold bg-purple-950/60 px-3 py-1 rounded-full border border-purple-900/50">6 Script Ditemukan</span>
         </div>
 
-        <!-- Script Cards Grid -->
-        <div id="scriptGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            <!-- Card 1: RenzVexx FPS Boost -->
-            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between group" data-category="renzxvex" data-title="renzvex fps potato boost">
-                <div>
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-lg bg-purple-950/80 text-purple-300 border border-purple-800/50 shadow-sm">FPS Booster</span>
-                        <span class="text-xs text-purple-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-purple-400"></i> By RenzVexx</span>
-                    </div>
-                    <h4 class="text-base font-extrabold text-white group-hover:text-purple-300 transition-colors mb-2">RenzVexx FPS & Potato Boost</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                        Script andalan buatan sendiri untuk menonaktifkan bayangan berat, partikel, dan membuat material jadi smooth plastic anti lag.
-                    </p>
-                </div>
-                <div>
-                    <div class="bg-[#05020a] rounded-xl p-3 mb-3.5 border border-purple-950 font-mono text-[11px] text-purple-300/80 overflow-x-auto whitespace-nowrap shadow-inner">
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RenzVex/scripts/main/fpsboost.lua"))()
-                    </div>
-                    <button onclick="copyScript('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/RenzVex/scripts/main/fpsboost.lua\'))()', 'RenzVexx FPS & Potato Boost')" 
-                        class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-purple-900/40 active:scale-95">
-                        <i class="fa-solid fa-copy"></i> Get Script (Copy Loadstring)
-                    </button>
-                </div>
+        <!-- Section Daftar Script -->
+        <div id="scripts-section">
+            <div class="section-header">
+                <div class="section-title">Daftar Script & Review Tersedia</div>
+                <div class="script-count" id="scriptCount">6 Script Ditemukan</div>
             </div>
 
-            <!-- Card 2: Violence District (Review) -->
-            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between group" data-category="review" data-title="violence district woodview cabin hub">
-                <div>
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-lg bg-indigo-950/80 text-indigo-300 border border-indigo-800/50 shadow-sm">Violence District</span>
-                        <span class="text-xs text-indigo-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-star text-amber-400"></i> Review Pilihan</span>
+            <!-- Grid Kartu Script -->
+            <div class="script-grid" id="scriptGrid">
+
+                <!-- Script 1: FPS Boost (Buatan Sendiri) -->
+                <div class="script-card" data-category="own" data-name="renzxvex fps potato boost lag reducer">
+                    <div>
+                        <div class="card-top">
+                            <span class="card-badge badge-own">FPS Booster</span>
+                            <span class="card-author">🛡️ By RenzVexx</span>
+                        </div>
+                        <h3>RenzVexx FPS & Potato Boost</h3>
+                        <p>Script andalan buatan sendiri untuk menonaktifkan bayangan berat, partikel, dan membuat material jadi smooth plastic anti lag.</p>
                     </div>
-                    <h4 class="text-base font-extrabold text-white group-hover:text-purple-300 transition-colors mb-2">Violence District (Woodview Cabin Hub)</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                        Hasil review script pilihan kreator lain untuk map gelap & optimalisasi tempur di area kabin hutan yang menantang.
-                    </p>
-                </div>
-                <div>
-                    <div class="bg-[#05020a] rounded-xl p-3 mb-3.5 border border-purple-950 font-mono text-[11px] text-purple-300/80 overflow-x-auto whitespace-nowrap shadow-inner">
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RenzVex/scripts/main/vd_cabin.lua"))()
+                    <div>
+                        <div class="loadstring-box">loadstring(game:HttpGet("LINK_RAW_GITHUB_KAMU"))()</div>
+                        <button onclick="copyScript('loadstring(game:HttpGet(\'LINK_RAW_GITHUB_KAMU\'))()')">📋 Get Script (Copy Loadstring)</button>
                     </div>
-                    <button onclick="copyScript('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/RenzVex/scripts/main/vd_cabin.lua\'))()', 'Violence District Cabin Hub')" 
-                        class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-purple-900/40 active:scale-95">
-                        <i class="fa-solid fa-copy"></i> Get Script (Copy Loadstring)
-                    </button>
                 </div>
-            </div>
 
-            <!-- Card 3: Snack Run (Review) -->
-            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between group" data-category="review" data-title="snack run ugc event hub">
-                <div>
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-lg bg-fuchsia-950/80 text-fuchsia-300 border border-fuchsia-800/50 shadow-sm">Event / UGC</span>
-                        <span class="text-xs text-indigo-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-star text-amber-400"></i> Review Pilihan</span>
+                <!-- Script 2: Violence District (Review Pilihan) -->
+                <div class="script-card" data-category="review" data-name="violence district woodview cabin hub">
+                    <div>
+                        <div class="card-top">
+                            <span class="card-badge badge-review">⭐ Review Pilihan</span>
+                            <span class="card-author">⭐ Community Review</span>
+                        </div>
+                        <h3>Violence District (Woodview Cabin Hub)</h3>
+                        <p>Hasil review script pilihan kreator lain untuk map gelap & optimalisasi tempur di area kabin hutan yang menantang.</p>
                     </div>
-                    <h4 class="text-base font-extrabold text-white group-hover:text-purple-300 transition-colors mb-2">Snack Run (UGC Event Hub)</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                        Script hasil review untuk event lari camilan. Auto collect kartu & koin dengan antarmuka Wind UI yang sangat bersih.
-                    </p>
-                </div>
-                <div>
-                    <div class="bg-[#05020a] rounded-xl p-3 mb-3.5 border border-purple-950 font-mono text-[11px] text-purple-300/80 overflow-x-auto whitespace-nowrap shadow-inner">
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RenzVex/scripts/main/snackrun.lua"))()
+                    <div>
+                        <div class="loadstring-box">loadstring(game:HttpGet("LINK_RAW_GITHUB_KAMU"))()</div>
+                        <button onclick="copyScript('loadstring(game:HttpGet(\'LINK_RAW_GITHUB_KAMU\'))()')">📋 Get Script (Copy Loadstring)</button>
                     </div>
-                    <button onclick="copyScript('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/RenzVex/scripts/main/snackrun.lua\'))()', 'Snack Run (UGC Event Hub)')" 
-                        class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-purple-900/40 active:scale-95">
-                        <i class="fa-solid fa-copy"></i> Get Script (Copy Loadstring)
-                    </button>
                 </div>
-            </div>
 
-            <!-- Card 4: RenzVexx Rejoin Tools -->
-            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between group" data-category="renzxvex" data-title="renzvex rejoin server tools">
-                <div>
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-lg bg-purple-950/80 text-purple-300 border border-purple-800/50 shadow-sm">Utility Tools</span>
-                        <span class="text-xs text-purple-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-purple-400"></i> By RenzVexx</span>
+                <!-- Script 3: Snack Run (Review Pilihan) -->
+                <div class="script-card" data-category="review" data-name="snack run ugc event hub">
+                    <div>
+                        <div class="card-top">
+                            <span class="card-badge badge-review">⭐ Review Pilihan</span>
+                            <span class="card-author">⭐ Community Review</span>
+                        </div>
+                        <h3>Snack Run (UGC Event Hub)</h3>
+                        <p>Script hasil review untuk event lari camilan. Auto collect kartu & koin dengan antarmuka Wind UI yang sangat bersih.</p>
                     </div>
-                    <h4 class="text-base font-extrabold text-white group-hover:text-purple-300 transition-colors mb-2">RenzVexx Rejoin & Server Tools</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                        Script utilitas buatan sendiri untuk rejoin instan dan mencari server sepi (low server hop) dengan sangat cepat.
-                    </p>
-                </div>
-                <div>
-                    <div class="bg-[#05020a] rounded-xl p-3 mb-3.5 border border-purple-950 font-mono text-[11px] text-purple-300/80 overflow-x-auto whitespace-nowrap shadow-inner">
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RenzVex/scripts/main/rejoin.lua"))()
+                    <div>
+                        <div class="loadstring-box">loadstring(game:HttpGet("LINK_RAW_GITHUB_KAMU"))()</div>
+                        <button onclick="copyScript('loadstring(game:HttpGet(\'LINK_RAW_GITHUB_KAMU\'))()')">📋 Get Script (Copy Loadstring)</button>
                     </div>
-                    <button onclick="copyScript('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/RenzVex/scripts/main/rejoin.lua\'))()', 'RenzVexx Rejoin Tools')" 
-                        class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-purple-900/40 active:scale-95">
-                        <i class="fa-solid fa-copy"></i> Get Script (Copy Loadstring)
-                    </button>
                 </div>
-            </div>
 
-            <!-- Card 5: Steal an Egg (Review) -->
-            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between group" data-category="review" data-title="steal an egg simulator review">
-                <div>
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-lg bg-blue-950/80 text-blue-300 border border-blue-800/50 shadow-sm">Simulator</span>
-                        <span class="text-xs text-indigo-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-star text-amber-400"></i> Review Pilihan</span>
+                <!-- Script 4: Rejoin Tools (Buatan Sendiri) -->
+                <div class="script-card" data-category="own" data-name="renzxvex rejoin server tools">
+                    <div>
+                        <div class="card-top">
+                            <span class="card-badge badge-own">Utility Tools</span>
+                            <span class="card-author">🛡️ By RenzVexx</span>
+                        </div>
+                        <h3>RenzVexx Rejoin & Server Tools</h3>
+                        <p>Script utilitas buatan sendiri untuk rejoin instan dan mencari server sepi (low server hop) dengan sangat cepat.</p>
                     </div>
-                    <h4 class="text-base font-extrabold text-white group-hover:text-purple-300 transition-colors mb-2">Steal an Egg (Auto Farm & Hatch)</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                        Hasil review script game Steal an Egg. Fitur auto farm dan buka telur otomatis tanpa ribet, sudah dites aman.
-                    </p>
-                </div>
-                <div>
-                    <div class="bg-[#05020a] rounded-xl p-3 mb-3.5 border border-purple-950 font-mono text-[11px] text-purple-300/80 overflow-x-auto whitespace-nowrap shadow-inner">
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RenzVex/scripts/main/stealanegg.lua"))()
+                    <div>
+                        <div class="loadstring-box">loadstring(game:HttpGet("LINK_RAW_GITHUB_KAMU"))()</div>
+                        <button onclick="copyScript('loadstring(game:HttpGet(\'LINK_RAW_GITHUB_KAMU\'))()')">📋 Get Script (Copy Loadstring)</button>
                     </div>
-                    <button onclick="copyScript('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/RenzVex/scripts/main/stealanegg.lua\'))()', 'Steal an Egg Hub')" 
-                        class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-purple-900/40 active:scale-95">
-                        <i class="fa-solid fa-copy"></i> Get Script (Copy Loadstring)
-                    </button>
                 </div>
-            </div>
 
-            <!-- Card 6: RenzVexx FullBright Tool -->
-            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between group" data-category="renzxvex" data-title="renzvex fullbright anti gelap tool">
-                <div>
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-lg bg-purple-950/80 text-purple-300 border border-purple-800/50 shadow-sm">Lighting Tool</span>
-                        <span class="text-xs text-purple-400 font-semibold flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-purple-400"></i> By RenzVexx</span>
+                <!-- Script 5: Steal an Egg (Review Pilihan) -->
+                <div class="script-card" data-category="review" data-name="steal an egg auto farm hatch simulator">
+                    <div>
+                        <div class="card-top">
+                            <span class="card-badge badge-review">⭐ Review Pilihan</span>
+                            <span class="card-author">⭐ Community Review</span>
+                        </div>
+                        <h3>Steal an Egg (Auto Farm & Hatch)</h3>
+                        <p>Hasil review script game Steal an Egg. Fitur auto farm dan buka telur otomatis tanpa ribet, sudah dites aman.</p>
                     </div>
-                    <h4 class="text-base font-extrabold text-white group-hover:text-purple-300 transition-colors mb-2">RenzVexx FullBright (Anti-Gelap)</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                        Alat buatan sendiri untuk menerangi map gelap gulita seperti kabin hutan atau malam hari jadi terang benderang.
-                    </p>
-                </div>
-                <div>
-                    <div class="bg-[#05020a] rounded-xl p-3 mb-3.5 border border-purple-950 font-mono text-[11px] text-purple-300/80 overflow-x-auto whitespace-nowrap shadow-inner">
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RenzVex/scripts/main/fullbright.lua"))()
+                    <div>
+                        <div class="loadstring-box">loadstring(game:HttpGet("LINK_RAW_GITHUB_KAMU"))()</div>
+                        <button onclick="copyScript('loadstring(game:HttpGet(\'LINK_RAW_GITHUB_KAMU\'))()')">📋 Get Script (Copy Loadstring)</button>
                     </div>
-                    <button onclick="copyScript('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/RenzVex/scripts/main/fullbright.lua\'))()', 'RenzVexx FullBright')" 
-                        class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-purple-900/40 active:scale-95">
-                        <i class="fa-solid fa-copy"></i> Get Script (Copy Loadstring)
-                    </button>
                 </div>
-            </div>
 
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-purple-900/40 glass-panel mt-16 py-8 text-center text-xs text-gray-400">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 RenzVexx Script Hub. Made with <i class="fa-solid fa-heart text-purple-500 mx-1"></i> for Roblox Community.</p>
-            <div class="flex space-x-4 text-purple-300">
-                <a href="#" class="hover:text-white transition-colors">Discord</a>
-                <a href="#" class="hover:text-white transition-colors">YouTube Channel</a>
-                <a href="#" class="hover:text-white transition-colors">GitHub Repository</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Toast Notification Modal -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 glass-panel bg-purple-950/90 text-white px-5 py-4 rounded-2xl shadow-2xl border border-purple-500/50 flex items-center gap-3.5 text-xs font-medium">
-        <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
-            <i class="fa-solid fa-check text-sm"></i>
-        </div>
-        <div>
-            <p id="toastTitle" class="font-bold text-white text-sm">Berhasil Disalin!</p>
-            <p id="toastDesc" class="text-purple-200 text-[11px]">Loadstring siap dipaste di executor.</p>
-        </div>
-    </div>
-
-    <!-- JavaScript Filtering & Copy Logic -->
-    <script>
-        let currentCategory = 'all';
-
-        function copyScript(text, name) {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast(name);
-                }).catch(() => {
-                    copyFallback(text, name);
-                });
-            } else {
-                copyFallback(text, name);
-            }
-        }
-
-        function copyFallback(text, name) {
-            const textarea = document.createElement("textarea");
-            textarea.value = text;
-            textarea.style.position = "fixed";
-            document.body.appendChild(textarea);
-            textarea.focus();
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                showToast(name);
-            } catch (err) {
-                alert("Gagal menyalin script.");
-            }
-            document.body.removeChild(textarea);
-        }
-
-        function showToast(scriptName) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastTitleTpl'); // placeholder
-            document.getElementById('toastTitle').innerText = "Script Berhasil Disalin!";
-            document.getElementById('toastDesc').innerText = scriptName + " siap dipaste di executor.";
-            
-            toast.classList.remove('translate-y-32', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-32', 'opacity-0');
-            }, 3500);
-        }
-
-        function filterCategory(category) {
-            currentCategory = category;
-            
-            // Update button styles
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => {
-                btn.className = "filter-btn px-4 py-3 rounded-2xl text-xs font-semibold bg-[#160d2b] border border-purple-900/50 text-purple-300 hover:bg-purple-950 transition-all";
-            });
-            
-            const activeBtn = document.getElementById('btn-' + category);
-            if (activeBtn) {
-                activeBtn.className = "filter-btn px-4 py-3 rounded-2xl text-xs font-bold bg-purple-600 text-white shadow-md shadow-purple-900/40 transition-all";
-            }
-
-            applyFilters();
-        }
-
-        function filterScripts() {
-            applyFilters();
-        }
-
-        function applyFilters() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.getElementsByClassName('script-card');
-            let count = 0;
-
-            for (let i = 0; i < cards.length; i++) {
-                const category = cards[i].getAttribute('data-category');
-                const title = cards[i].getAttribute('data-title');
-                const textContent = cards[i].innerText.toLowerCase();
-                
-                const matchesCategory = (currentCategory === 'all' || category === currentCategory);
-                const matchesSearch = (title.includes(input) || textContent.includes(input));
-
-                if (matchesCategory && matchesSearch) {
-                    cards[i].style.display = "";
-                    count++;
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-            document.getElementById('scriptCount').innerText = count + " Script Ditemukan";
-        }
-    </script>
-</body>
-</html>
+                <!-- Script 6: FullBright (Buatan Sendiri) -->
+                <div class="script-card" data-category="own" data-name="renzxvex fullbright anti-gelap">
+                    <div>
+                        <div class="card-top">
+                            <span class="card-badge badge-own">Lighting Tool</span>
+                            <span class="card-author">🛡️ By RenzVexx</span>
+                        </div>
+                        <h3>RenzVexx FullBright (Anti-Gelap)</h3>
+                        <p>Alat buatan sendiri untuk menerangi map gelap gulita seperti kabin hutan atau malam hari jadi terang benderang.</p>
+                    </div>
+                    <div>
+                        <div class="loadstring-box">loadstring(game:HttpGet("LINK_RAW_GITHUB_KAMU"))()</div>
+                        <button onclick
