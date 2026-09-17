@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RenzVexx Vault • Steal An Egg Roblox Script Directory</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            800: '#581c87',
+                            900: '#3b0764',
+                            950: '#0c0517',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #080312;
+            color: #f3f4f6;
+            background-image: 
+                radial-gradient(at 15% 15%, rgba(147, 51, 234, 0.18) 0px, transparent 45%),
+                radial-gradient(at 85% 85%, rgba(236, 72, 153, 0.12) 0px, transparent 45%),
+                radial-gradient(at 50% 50%, rgba(99, 102, 241, 0.08) 0px, transparent 60%);
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(18, 9, 36, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+        .glass-card:hover {
+            border-color: rgba(216, 180, 254, 0.5);
+            box-shadow: 0 12px 36px -5px rgba(168, 85, 247, 0.35);
+        }
+        .glow-title {
+            text-shadow: 0 0 25px rgba(192, 132, 252, 0.6);
+        }
+        .code-box {
+            background-color: rgba(8, 3, 18, 0.95);
+        }
+        @keyframes rgbGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-gradient-text {
+            background: linear-gradient(90deg, #c084fc, #f472b6, #38bdf8, #a855f7, #ec4899, #c084fc);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbGradient 4s ease infinite;
+            display: inline-block;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0517;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #581c87;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9333ea;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-brand-950/80 border-b border-purple-900/40 px-4 lg:px-8 py-3.5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-800 via-brand-600 to-pink-600 border border-purple-400/40 flex items-center justify-center shadow-lg shadow-purple-600/30 group-hover:scale-105 group-hover:border-purple-300 transition-all duration-300">
+                    <span class="font-mono font-black text-lg tracking-tighter bg-gradient-to-b from-white via-purple-100 to-pink-200 bg-clip-text text-transparent">RV</span>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl font-black tracking-tight animated-gradient-text glow-title">RenzVexx</span>
+                        <span class="text-[10px] bg-purple-900/90 text-purple-200 border border-purple-500/40 px-2 py-0.5 rounded-full font-mono font-bold tracking-wider">VAULT v3.0</span>
+                    </div>
+                    <p class="text-[11px] text-purple-300/70 font-semibold">Steal An Egg Roblox Script Hub</p>
+                </div>
+            </a>
+
+            <!-- Right Status Badges -->
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex items-center gap-2 bg-purple-950/70 border border-purple-500/30 px-3.5 py-1.5 rounded-full text-purple-300 text-xs font-semibold">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    18 Scripts Active
+                </div>
+                <a href="#scriptGrid" class="bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 hover:brightness-110 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md shadow-brand-600/30 flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-yellow-300"></i> Explore Scripts
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative pt-10 pb-6 px-4 max-w-7xl mx-auto w-full">
+        <div class="glass-card rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
+            <!-- Background Glow Decor -->
+            <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="inline-flex items-center gap-2 bg-purple-900/50 border border-purple-500/40 text-purple-200 text-xs px-4 py-1.5 rounded-full font-semibold mb-4">
+                <i class="fa-solid fa-shield-halved text-emerald-400"></i> Koleksi Script Roblox Terlengkap & Verified
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-3">
+                <span class="animated-gradient-text">RenzVexx</span> Steal An Egg Script Vault
+            </h1>
+            <p class="text-purple-200/80 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
+                Daftar lengkap <strong class="text-white">18 Roblox Steal An Egg Script Hub</strong> terbaik. Dilengkapi status Key/Keyless, Auto Steal, Instant Hatch, God Mode, Auto Boss, dan Auto Farm.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto relative mb-5">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 text-sm"></i>
+                    <input type="text" id="searchInput" oninput="filterScripts()" placeholder="Cari script (BK's, D-Hub, Jane, Tsuo, Keyless, God Mode...)" 
+                        class="w-full bg-brand-950/90 border border-brand-500/40 focus:border-purple-400 text-white text-sm pl-11 pr-10 py-3.5 rounded-2xl outline-none focus:ring-2 focus:ring-purple-500/50 transition-all font-medium placeholder-purple-400/50">
+                    <button id="clearSearch" onclick="resetSearch()" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-purple-400 hover:text-white p-1">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto mb-6">
+                <button onclick="setFilter('all')" class="filter-pill bg-purple-600 text-white border border-purple-400/50 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all" data-filter="all">Semua (18)</button>
+                <button onclick="setFilter('keyless')" class="filter-pill bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 border border-purple-800/60 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all" data-filter="keyless"><i class="fa-solid fa-unlock text-emerald-400 mr-1"></i> Keyless</button>
+                <button onclick="setFilter('key')" class="filter-pill bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 border border-purple-800/60 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all" data-filter="key"><i class="fa-solid fa-key text-amber-400 mr-1"></i> Key System</button>
+                <button onclick="setFilter('autosteal')" class="filter-pill bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 border border-purple-800/60 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all" data-filter="autosteal">⚡ Auto Steal</button>
+                <button onclick="setFilter('godmode')" class="filter-pill bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 border border-purple-800/60 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all" data-filter="godmode">🛡️ God Mode</button>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left pt-5 border-t border-purple-900/40">
+                <div class="bg-brand-950/60 p-3 rounded-2xl border border-purple-900/50">
+                    <p class="text-[10px] text-purple-300/70 font-semibold uppercase tracking-wider">Total Script Hub</p>
+                    <p class="text-lg sm:text-xl font-black text-white">18 Cards</p>
+                </div>
+                <div class="bg-brand-950/60 p-3 rounded-2xl border border-purple-900/50">
+                    <p class="text-[10px] text-purple-300/70 font-semibold uppercase tracking-wider">Akses Key</p>
+                    <p class="text-lg sm:text-xl font-black text-purple-300">Key & Keyless</p>
+                </div>
+                <div class="bg-brand-950/60 p-3 rounded-2xl border border-purple-900/50">
+                    <p class="text-[10px] text-purple-300/70 font-semibold uppercase tracking-wider">Dukungan</p>
+                    <p class="text-lg sm:text-xl font-black text-emerald-400">Mobile & PC</p>
+                </div>
+                <div class="bg-brand-950/60 p-3 rounded-2xl border border-purple-900/50">
+                    <p class="text-[10px] text-purple-300/70 font-semibold uppercase tracking-wider">Status Update</p>
+                    <p class="text-lg sm:text-xl font-black text-pink-400">Terbaru 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script Counter Header -->
+    <div class="max-w-7xl mx-auto px-4 w-full flex items-center justify-between my-4">
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-cubes text-purple-400 text-lg"></i>
+            <h2 class="text-lg font-bold text-white tracking-wide">Semua Collection Script</h2>
+        </div>
+        <span id="scriptCountBadge" class="bg-purple-950/90 border border-purple-500/40 text-purple-200 text-xs px-3.5 py-1 rounded-lg font-mono font-semibold">
+            Menampilkan 18 / 18 Script
+        </span>
+    </div>
+
+    <!-- MAIN SCRIPT GRID CONTAINER (18 Cards statically rendered) -->
+    <main class="max-w-7xl mx-auto px-4 pb-16 w-full flex-grow">
+        <div id="scriptGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <!-- CARD 01 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="bk hub bkhub steal an egg keyless auto steal rift boss fight auto hatch auto sacrifice luarmor">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#01 • BK's Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        BK's Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal, Auto Rift, Auto Boss Fight, Auto Sacrifice, Auto Hatch, Egg Teleport, Auto Treadmill, Free Rerolls.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9ee4edde227ac85f50872bf9e4226508.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://api.luarmor.net/files/v4/loaders/9ee4edde227ac85f50872bf9e4226508.lua&quot;))()', 'BK\'s Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 02 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="d-hub dhub steal an egg keyless instant steal auto farm auto hatch loader azerothtzy">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#02 • D-Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        D-Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Instant Steal, Auto Farm, Auto Hatch, Auto Sell, Teleport Base, Speed Multiplier, Auto Upgrade Base.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/refs/heads/main/loader.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/azerothtzy-dotcom/D-Hub-Scripts/refs/heads/main/loader.lua&quot;))()', 'D-Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 03 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="jane hub steal an egg keyless auto steal auto hatch auto pickup auto sell flowauth">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#03 • Jane Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Jane Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal, Auto Hatch, Auto Pickup Eggs, Auto Sell All, Fast Farm System, Teleport Safe Zone.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://flowauth.net/v1/loaders/b88a6143b351d79f4c5a108ec33b5a2c.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://flowauth.net/v1/loaders/b88a6143b351d79f4c5a108ec33b5a2c.lua&quot;))()', 'Jane Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 04 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="tsuo hub steal an egg keyless fast instant steal auto farm auto ring angel demon eggs">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#04 • Tsuo Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Tsuo Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Fast Instant Steal, Auto Farm, Auto Ring, Angel & Demon Eggs Target Selector, Infinite Speed.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/stealanegg"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/stealanegg&quot;))()', 'Tsuo Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 05 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="ub hub teamubhub steal an egg keyless auto steal pet predictor auto hatch auto place loader">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#05 • UB Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        UB Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal, Pet Predictor Detector, Auto Hatch Best Eggs, Auto Place Eggs & Base Upgrades.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamUBHub/UBLoader/refs/heads/main/Loader.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/TeamUBHub/UBLoader/refs/heads/main/Loader.lua&quot;))()', 'UB Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 06 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="sena hub steal an egg keyless auto steal auto rift boss auto upgrade loader">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#06 • Sena Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Sena Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal, Auto Rift Boss Fight, Auto Upgrade Base, Auto Treadmill Training, Speed Multiplier.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/senarblx/sena/refs/heads/main/loader"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/senarblx/sena/refs/heads/main/loader&quot;))()', 'Sena Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 07 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="zeroin hub zeroinhub steal an egg keyless auto boss fight instant steal">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#07 • Zeroin Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Zeroin Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Boss Fight, Instant Steal Eggs, Speed Hack, Egg ESP Visuals, Anti-Ragdoll Bypass.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://zeroinhub.com/api/script"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://zeroinhub.com/api/script&quot;))()', 'Zeroin Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 08 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="key godmode autosteal" data-search="oxide hub steal an egg key autofarm instant steal godmode xulfo">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-key text-[9px]"></i> Key System
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#08 • Oxide Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Oxide Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Farm, Instant Steal, God Mode, Anti Hit Protection, Auto Sell All Eggs, Custom Walkspeed.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/xulfo/Oxide-Loader/main/Main.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/xulfo/Oxide-Loader/main/Main.lua&quot;))()', 'Oxide Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 09 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="key godmode autosteal" data-search="axon hub steal an egg key fast instant steal auto farm the rift event god mode luarmor">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-key text-[9px]"></i> Key System
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#09 • Axon Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Axon Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Fast Instant Steal, Auto Farm, The Rift Event Collector, God Mode, Auto Buy Upgrades.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/97c3f6db55a2cf72141537a85458e5a7.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://api.luarmor.net/files/v3/loaders/97c3f6db55a2cf72141537a85458e5a7.lua&quot;))()', 'Axon Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 10 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="miranda hub miirandahub steal an egg keyless instant steal show egg data">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#10 • Miranda Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Miranda Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Instant Steal, Show Realtime Egg Data, Auto Hatch, ESP Eggs, Teleport Base & Player.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/miirandahub/loader/refs/heads/main/stealaegg"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/miirandahub/loader/refs/heads/main/stealaegg&quot;))()', 'Miranda Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 11 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless godmode autosteal" data-search="omg hub steal an egg keyless insta steal god mode Omgshit loader">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#11 • OMG Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        OMG Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Insta Steal, God Mode Immunity, Auto Sell Eggs, Speed Multiplier Boost, Anti AFK Kick.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua&quot;))()', 'OMG Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 12 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="key autosteal" data-search="zeropoint hub steal an egg key system instant steal auto steal anti hit jaxrol">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-key text-[9px]"></i> Key System
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#12 • ZeroPoint Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        ZeroPoint Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Instant Steal, Auto Steal, Anti Hit Protection, Auto Teleport Safe Base, Fly Mode.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/JaxRol/ZeroPoint/refs/heads/main/KeySystem"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/JaxRol/ZeroPoint/refs/heads/main/KeySystem&quot;))()', 'ZeroPoint Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 13 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless godmode autosteal" data-search="rift hub steal an egg keyless auto steal titan temple eggs god mode instant steal egg">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#13 • Rift Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Rift Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal Titan Temple Eggs, God Mode Immunity, Instant Steal Egg, Auto Farm Level.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://rifton.top/loader.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://rifton.top/loader.lua&quot;))()', 'Rift Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 14 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="clover hub cloverhub steal an egg keyless steal all areas auto event ryuun0x">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#14 • Clover Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Clover Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Steal All Areas, Auto Event Teleport, Instant Hatch, Custom Walkspeed & JumpPower.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryuun0x/Clover/main/main.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/Ryuun0x/Clover/main/main.lua&quot;))()', 'Clover Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 15 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless godmode autosteal" data-search="toolbox hub steal an egg keyless auto steal egg god mode instant steal auto bloom event">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#15 • ToolBox Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        ToolBox Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal Egg, God Mode, Instant Steal, Auto Bloom Event, Infinite Jump, Anti-Stun.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/Abdullahking20/loader-lua/main/loader"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/Abdullahking20/loader-lua/main/loader&quot;))()', 'ToolBox Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 16 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="pig hub steal an egg keyless auto steal eggs auto sell egg esp auto upgrade base">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#16 • Pig Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Pig Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal Eggs, Auto Sell All, Egg ESP Tracers, Auto Upgrade Base, Treadmill Speed Farm.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/mopsscript7-gif/steal-an-egg/refs/heads/main/script.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/mopsscript7-gif/steal-an-egg/refs/heads/main/script.lua&quot;))()', 'Pig Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 17 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless godmode autosteal" data-search="foxname hub steal an egg keyless auto steal god mode fn-stealanegg">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#17 • FoxName Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        FoxName Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Steal Eggs, God Mode Immunity, Auto Base Upgrade, Treadmill Speed Multiplier.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Fn-stealanegg.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Fn-stealanegg.lua&quot;))()', 'FoxName Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 18 -->
+            <div class="script-card glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300" data-type="keyless autosteal" data-search="blyxo hub steal an egg keyless flowauth auto farm hatch clean interface">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1">
+                            <i class="fa-solid fa-unlock text-[9px]"></i> Keyless
+                        </span>
+                        <span class="text-xs font-mono text-purple-300/90 bg-purple-950/90 px-2.5 py-0.5 rounded-md border border-purple-800/50">#18 • Blyxo Hub</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white mb-2 flex items-center gap-2">
+                        Blyxo Hub - Steal An Egg
+                    </h3>
+                    <p class="text-xs text-purple-200/75 leading-relaxed mb-4">
+                        Fitur: Auto Farm, Instant Hatch, Auto Sell, Auto Collect, Clean Mobile UI, Smooth Execution.
+                    </p>
+                </div>
+                <div class="mt-auto space-y-2.5 pt-3 border-t border-purple-900/30">
+                    <div class="code-box border border-purple-800/40 rounded-xl p-2.5 font-mono text-[11px] text-purple-300 overflow-x-auto whitespace-nowrap select-all">
+                        loadstring(game:HttpGet("https://flowauth.net/v1/loaders/69d3463240384f3a73fbe32c178093a2.lua"))()
+                    </div>
+                    <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://flowauth.net/v1/loaders/69d3463240384f3a73fbe32c178093a2.lua&quot;))()', 'Blyxo Hub')" 
+                        class="w-full bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Get Script / Copy
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Empty State (Shown when search/filter has no match) -->
+        <div id="noResults" class="hidden text-center py-16">
+            <div class="w-16 h-16 rounded-full bg-purple-950/80 border border-purple-800/50 flex items-center justify-center mx-auto text-purple-400 text-2xl mb-3">
+                <i class="fa-solid fa-ghost"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-1">Script Tidak Ditemukan</h3>
+            <p class="text-sm text-purple-300/60 mb-4">Coba ketik kata kunci lain seperti 'BK', 'Jane', 'Rift', atau 'Auto'</p>
+            <button onclick="resetSearch()" class="bg-purple-800 hover:bg-purple-700 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all">
+                Reset Pencarian & Filter
+            </button>
+        </div>
+    </main>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 ease-out">
+        <div class="bg-gradient-to-r from-purple-800 via-brand-700 to-pink-800 text-white border border-purple-400/50 shadow-2xl rounded-2xl px-5 py-3.5 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm border border-emerald-500/40">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div>
+                <p class="text-xs font-bold text-white" id="toastTitle">Loadstring Disalin!</p>
+                <p class="text-[11px] text-purple-200" id="toastSub">Siap di-paste ke executor pilihanmu</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-purple-900/40 bg-brand-950/90 py-8 px-4 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-purple-300/60">
+            <div class="flex items-center gap-2">
+                <span class="font-extrabold text-white">RenzVexx Vault</span> &copy; 2026. Steal An Egg Script Vault.
+            </div>
+            <div class="flex items-center gap-4 text-purple-300/80">
+                <a href="#scriptGrid" class="hover:text-white transition-colors">18 Hubs Active</a>
+                <span>•</span>
+                <span class="text-purple-300 font-medium"><i class="fa-solid fa-mobile-screen-button mr-1"></i> Mobile & PC Compatible</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let currentFilter = 'all';
+
+        // Copy to clipboard helper function with iframe fallback
+        function copyToClipboard(text, scriptName) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(scriptName);
+                }).catch(err => {
+                    fallbackCopy(text, scriptName);
+                });
+            } else {
+                fallbackCopy(text, scriptName);
+            }
+        }
+
+        function fallbackCopy(text, scriptName) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(scriptName);
+            } catch (err) {
+                console.error('Copy fallback failed', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // Show toast animation
+        let toastTimeout;
+        function showToast(name) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').innerText = `${name} Disalin!`;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // Set pill filter
+        function setFilter(filterCategory) {
+            currentFilter = filterCategory;
+            
+            // Highlight active filter pill
+            document.querySelectorAll('.filter-pill').forEach(pill => {
+                if (pill.getAttribute('data-filter') === filterCategory) {
+                    pill.className = 'filter-pill bg-purple-600 text-white border border-purple-400/50 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all';
+                } else {
+                    pill.className = 'filter-pill bg-purple-950/60 hover:bg-purple-900/60 text-purple-300 border border-purple-800/60 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all';
+                }
+            });
+
+            filterScripts();
+        }
+
+        // Filter scripts logic (combines text search + category filter)
+        function filterScripts() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.script-card');
+            const clearBtn = document.getElementById('clearSearch');
+            let visibleCount = 0;
+
+            if (query.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search').toLowerCase();
+                const cardTypes = card.getAttribute('data-type') || '';
+                const cardText = card.innerText.toLowerCase();
+
+                const matchesQuery = query === '' || searchData.includes(query) || cardText.includes(query);
+                const matchesFilter = currentFilter === 'all' || cardTypes.includes(currentFilter);
+
+                if (matchesQuery && matchesFilter) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('scriptCountBadge').innerText = `Menampilkan ${visibleCount} / 18 Script`;
+
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function resetSearch() {
+            document.getElementById('searchInput').value = '';
+            setFilter('all');
+        }
+    </script>
+</body>
+</html>
